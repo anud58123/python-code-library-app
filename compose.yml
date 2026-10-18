@@ -14,7 +14,7 @@ services:
     deploy:
       replicas: 1
     ports:
-      - "5001:5001"
+      - "1111:5001"
     networks:
       - mynetwork
     depends_on:
@@ -26,7 +26,7 @@ services:
     deploy:
       replicas: 1
     ports:
-      - "5002:5002"
+      - "1112:5002"
     networks:
       - mynetwork
     depends_on:
@@ -36,7 +36,7 @@ services:
     deploy:
       replicas: 1
     ports:
-      - "5003:5003"
+      - "1113:5003"
     networks:
       - mynetwork
     depends_on:
@@ -47,7 +47,7 @@ services:
     deploy:
       replicas: 1
     ports:
-      - "5000:5000"
+      - "1114:5000"
     networks:
       - mynetwork
     depends_on:
