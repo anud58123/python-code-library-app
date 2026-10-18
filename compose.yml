@@ -3,7 +3,7 @@ services:
   db:
     image: anud58123/prod1:db
     ports:
-      - '3306:3306'
+      - '3307:3306'
     networks:
       - mynetwork
     volumes:
