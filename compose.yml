@@ -60,3 +60,5 @@ services:
 networks:
   mynetwork:
     driver: overlay
+volumes:
+  mydata:
