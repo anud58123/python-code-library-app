@@ -9,12 +9,12 @@ services:
     volumes:
       - mydata:/var/lib/mysql
     deploy:
-      replicas: 1
+      replicas: 3
 
   auth_service:
     image: anud58123/prod1:auth
     deploy:
-      replicas: 1
+      replicas: 3
     ports:
       - '1111:5000'
     networks:
@@ -26,7 +26,7 @@ services:
   book_service:
     image: anud58123/prod1:book
     deploy:
-      replicas: 1
+      replicas: 3
     ports:
       - '1112:5000'
     networks:
@@ -36,7 +36,7 @@ services:
   borrow_service:
     image: anud58123/prod1:borrow
     deploy:
-      replicas: 1
+      replicas: 3
     ports:
       - '1113:5000'
     networks:
@@ -47,7 +47,7 @@ services:
   frontend:
     image: anud58123/prod1:webapp
     deploy:
-      replicas: 1
+      replicas: 3
     ports:
       - '1114:5000'
     networks:
