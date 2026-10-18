@@ -13,8 +13,6 @@ services:
 
   auth_service:
     image: anud58123/prod1:auth
-    deploy:
-      replicas: 3
     ports:
       - '1111:5000'
     networks:
@@ -25,8 +23,6 @@ services:
 
   book_service:
     image: anud58123/prod1:book
-    deploy:
-      replicas: 3
     ports:
       - '1112:5000'
     networks:
@@ -35,8 +31,6 @@ services:
       - db
   borrow_service:
     image: anud58123/prod1:borrow
-    deploy:
-      replicas: 3
     ports:
       - '1113:5000'
     networks:
