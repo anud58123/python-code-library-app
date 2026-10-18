@@ -14,7 +14,7 @@ services:
   auth_service:
     image: anud58123/prod1:auth
     ports:
-      - '1111:5000'
+      - '1111:5001'
     networks:
       - mynetwork
     depends_on:
@@ -24,7 +24,7 @@ services:
   book_service:
     image: anud58123/prod1:book
     ports:
-      - '1112:5000'
+      - '1112:5002'
     networks:
       - mynetwork
     depends_on:
@@ -32,7 +32,7 @@ services:
   borrow_service:
     image: anud58123/prod1:borrow
     ports:
-      - '1113:5000'
+      - '1113:5003'
     networks:
       - mynetwork
     depends_on:
