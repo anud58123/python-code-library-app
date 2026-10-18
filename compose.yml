@@ -2,21 +2,21 @@
 services:
   db:
     image: anud58123/prod1:db
-    deploy:
-      replicas: 1
     ports:
-      - "3306:3306"
+      - '3306:3306'
     networks:
       - mynetwork
     volumes:
       - mydata:/var/lib/mysql
+    deploy:
+      replicas: 1
 
   auth_service:
     image: anud58123/prod1:auth
     deploy:
       replicas: 1
     ports:
-      - "1111:5000"
+      - '1111:5000'
     networks:
       - mynetwork
     depends_on:
@@ -28,7 +28,7 @@ services:
     deploy:
       replicas: 1
     ports:
-      - "1112:5000"
+      - '1112:5000'
     networks:
       - mynetwork
     depends_on:
@@ -38,27 +38,28 @@ services:
     deploy:
       replicas: 1
     ports:
-      - "1113:5000"
+      - '1113:5000'
     networks:
       - mynetwork
     depends_on:
       - db
 
   frontend:
-    image: anud58123/prod1:frontend
+    image: anud58123/prod1:webapp
     deploy:
       replicas: 1
     ports:
-      - "1114:5000"
+      - '1114:5000'
     networks:
       - mynetwork
     depends_on:
       - auth_service
       - book_service
       - borrow_service
+      - db
 
 networks:
   mynetwork:
-    driver: overlay
+    driver: bridge
 volumes:
   mydata:
