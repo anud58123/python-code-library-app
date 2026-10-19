@@ -4,8 +4,6 @@ services:
     image: anud58123/prod1:db
     ports:
       - '3307:3306'
-    networks:
-      - mynetwork
     volumes:
       - mydata:/var/lib/mysql
     deploy:
@@ -14,9 +12,8 @@ services:
   auth_service:
     image: anud58123/prod1:auth
     ports:
-      - '1111:5001'
-    networks:
-      - mynetwork
+      - '5001:5001'
+    
     depends_on:
       - db
     
@@ -24,17 +21,15 @@ services:
   book_service:
     image: anud58123/prod1:book
     ports:
-      - '1112:5002'
-    networks:
-      - mynetwork
+      - '5002:5002'
+    
     depends_on:
       - db
   borrow_service:
     image: anud58123/prod1:borrow
     ports:
-      - '1113:5003'
-    networks:
-      - mynetwork
+      - '5003:5003'
+    
     depends_on:
       - db
 
@@ -43,17 +38,13 @@ services:
     deploy:
       replicas: 3
     ports:
-      - '1114:5000'
-    networks:
-      - mynetwork
+      - '5000:5000'
+
     depends_on:
       - auth_service
       - book_service
       - borrow_service
       - db
-
-networks:
-  mynetwork:
-    driver: bridge
+      
 volumes:
   mydata:
